@@ -72,6 +72,7 @@ router.post("/login", async (req, res) => {
 router.get("/all", async (req, res) => {
   try {
     const users = await new User.find({ status: active }).populate("todos");
+    console.log(users);
     res.status(200).json({
       data: users,
       message: "Success",
